@@ -28,7 +28,7 @@ onMounted(async () => {
   <main>
     <h1>🎬 Movie List</h1>
     <ul>
-      <li v-for="movie in movies" :key="movie.title">
+      <li v-for="movie in items" :key="movie.title">
         {{ movie.title }} ({{ movie.releaseYear }})
       </li>
     </ul>
