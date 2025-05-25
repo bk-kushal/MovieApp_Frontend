@@ -6,15 +6,21 @@ interface Movie {
   releaseYear: number
 }
 
-const movies = ref<Movie[]>([])
+const items = ref<Movie[]>([])
+
+const endpoint = 'https://movie-app-5gda.onrender.com/api/movies'
+const requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+}
 
 onMounted(async () => {
-  try {
-    const res = await fetch('https://movie-app-5gda.onrender.com/api/movies')
-    movies.value = await res.json()
-  } catch (error) {
-    console.error('Failed to fetch movies:', error)
-  }
+  fetch(endpoint, requestOptions)
+    .then(response => response.json())
+    .then(result => result.forEach((movie: Movie) => {
+      items.value.push(movie)
+    }))
+    .catch(error => console.error('Fetch error:', error))
 })
 </script>
 
