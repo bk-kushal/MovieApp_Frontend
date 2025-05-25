@@ -11,7 +11,7 @@ const items = ref<Movie[]>([])
 const endpoint = 'https://movie-app-5gda.onrender.com/api/movies'
 const requestOptions = {
   method: 'GET',
-  redirect: 'follow'
+  redirect: 'follow' as RequestRedirect
 }
 
 onMounted(async () => {
