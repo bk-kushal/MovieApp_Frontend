@@ -15,6 +15,7 @@ const requestOptions = {
 }
 
 onMounted(async () => {
+  console.log("test!!!!!!!!!!!!!!!!!!!")
   fetch(endpoint, requestOptions)
     .then(response => response.json())
     .then(result => result.forEach((movie: Movie) => {
